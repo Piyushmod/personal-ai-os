@@ -1,1 +1,95 @@
-index.html
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVA AI — Personal AI OS</title>
+  <link rel="stylesheet" href="style.css">
+</head><body>  <header>
+    <div class="logo">NOVA<span>AI</span></div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <button onclick="openAI()">Ask NOVA</button>
+    </nav>
+  </header>  <main id="home">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="tag">YOUR PERSONAL AI OS</p>
+        <h1>One AI.<br><span>Your Entire Digital World.</span></h1>
+        <p>
+          NOVA is a personal AI system designed to help you control,
+          organize and automate your digital life.
+        </p>    <div class="buttons">
+      <button onclick="openAI()">Talk to NOVA</button>
+      <a href="#features">Explore Features</a>
+    </div>
+  </div>
+
+  <div class="orb">
+    <div class="orb-inner">N</div>
+  </div>
+</section>
+
+<section id="features" class="features">
+  <h2>What NOVA Can Do</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>📱 Phone Control</h3>
+      <p>Manage supported phone actions through secure permissions.</p>
+    </div>
+
+    <div class="card">
+      <h3>💻 Laptop Control</h3>
+      <p>Connect your computer and automate approved tasks.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧠 AI Memory</h3>
+      <p>Remember useful information and preferences across sessions.</p>
+    </div>
+
+    <div class="card">
+      <h3>⚡ Automation</h3>
+      <p>Create workflows that save time and reduce repetitive work.</p>
+    </div>
+
+    <div class="card">
+      <h3>🔐 Security</h3>
+      <p>Permission-based actions, confirmations and activity logs.</p>
+    </div>
+
+    <div class="card">
+      <h3>🌐 One Dashboard</h3>
+      <p>Access your connected devices from one simple interface.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <h2>Built for the Future</h2>
+  <p>
+    NOVA is a concept for a secure personal AI operating layer.
+    The goal is simple: make technology work for you.
+  </p>
+</section>
+
+  </main>  <footer>
+    <p>© 2026 NOVA AI — Personal AI OS</p>
+  </footer>  <div id="aiModal" class="modal">
+    <div class="chat-box">
+      <button class="close" onclick="closeAI()">×</button>
+      <h2>🤖 NOVA AI</h2>
+      <p>Hi Piyush! I'm your Personal AI OS demo.</p>  <div id="chatMessages" class="messages">
+    <div class="bot">Ask me something...</div>
+  </div>
+
+  <div class="chat-input">
+    <input id="userInput" type="text" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+  </div>  <script src="script.js"></script></body>
+</html>
