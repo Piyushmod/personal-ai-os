@@ -47,7 +47,7 @@ async function sendMessage() {
       botDiv.textContent = "Error: " + data.error.message;
     } else {
       const reply = data.candidates && data.candidates[0] && data.candidates[0].content.parts[0].text;
-      botDiv.textContent = reply || "Sorry, I couldn't generate a reply.";
+      botDiv.textContent = reply || ("Debug: " + JSON.stringify(data));
     }
     messages.appendChild(botDiv);
   } catch (err) {
