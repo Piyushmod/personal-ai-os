@@ -39,17 +39,22 @@ async function sendMessage() {
       }
     );
     const data = await response.json();
-    const reply = data.candidates && data.candidates[0] && data.candidates[0].content.parts[0].text;
     thinkingDiv.remove();
     const botDiv = document.createElement('div');
     botDiv.className = 'bot';
-    botDiv.textContent = reply || "Sorry, I couldn't generate a reply.";
+
+    if (data.error) {
+      botDiv.textContent = "Error: " + data.error.message;
+    } else {
+      const reply = data.candidates && data.candidates[0] && data.candidates[0].content.parts[0].text;
+      botDiv.textContent = reply || "Sorry, I couldn't generate a reply.";
+    }
     messages.appendChild(botDiv);
   } catch (err) {
     thinkingDiv.remove();
     const errDiv = document.createElement('div');
     errDiv.className = 'bot';
-    errDiv.textContent = "Something went wrong reaching NOVA's brain. Try again.";
+    errDiv.textContent = "Network error: " + err.message;
     messages.appendChild(errDiv);
   }
   messages.scrollTop = messages.scrollHeight;
