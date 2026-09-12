@@ -23,21 +23,12 @@ async function sendMessage() {
   messages.appendChild(thinkingDiv);
   messages.scrollTop = messages.scrollHeight;
 
-  const GEMINI_API_KEY = "AIzaSyCjbTgvUwxURLQ5_mQfkLDrSG5MwE1DVfQ";
-
   try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=${GEMINI_API_KEY}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{
-            parts: [{ text: `You are NOVA, a friendly personal AI OS assistant. Answer briefly and helpfully. User: ${text}` }]
-          }]
-        })
-      }
-    );
+    const response = await fetch("https://nova-proxy.piyuhkumar69.workers.dev", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: text })
+    });
     const data = await response.json();
     thinkingDiv.remove();
     const botDiv = document.createElement('div');
@@ -47,7 +38,7 @@ async function sendMessage() {
       botDiv.textContent = "Error: " + data.error.message;
     } else {
       const reply = data.candidates && data.candidates[0] && data.candidates[0].content.parts[0].text;
-      botDiv.textContent = reply || ("Debug: " + JSON.stringify(data));
+      botDiv.textContent = reply || "Sorry, I couldn't generate a reply.";
     }
     messages.appendChild(botDiv);
   } catch (err) {
